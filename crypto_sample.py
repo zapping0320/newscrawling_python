@@ -9,6 +9,9 @@ articles = html.select("ul.list_news > li")
 
 #print(articles[0])
 for ar in articles:
+    times  = ar.select('li > div > div > div > div > span')
+    print(times[0].get_text())
+
     titles = ar.select('li > div > div > a')
     print(titles[0].get_text())
     print(titles[0]["href"])
