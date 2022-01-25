@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 token = "{token}"
 channel = "#news_crawler01"
 
-raw = requests.get("https://search.naver.com/search.naver?where=news&query=암호화폐 세금",
+raw = requests.get("https://search.naver.com/search.naver?where=news&query=암호화폐 세금&sm=tab_opt&sort=1&photo=0&field=0&pd=0&ds=&de=&docid=&related=0&mynews=0&office_type=0&office_section_code=0&news_office_checked=&nso=so%3Add%2Cp%3Aall&is_sug_officeid=0",
                    headers={'User-Agent':'Mozilla/5.0'})
 html = BeautifulSoup(raw.text, "html.parser")
 
