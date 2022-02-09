@@ -4,12 +4,14 @@ from bs4 import BeautifulSoup
 import schedule
 import time
 
-def searchKeyword1():
-    postSlackMessage("암호화폐")
-
+    
+def searchKeywords():
+    keys = ['가상자산', '가상자산 세무','NFT', 'STO','바이낸스', '비트겟', '바이비트', '업비트', '빗썸', '코인원', '고팍스',  '블록체인', 'KODA', '해시드', '김서준', '금융정보분석원', '국세청', '가상자산', '트레블룰'  ] 
+    for key in keys:
+        postSlackMessage(key)
 
 def postSlackMessage(keyword):
-    token = "{token}"
+    token = ""
     channel = "#news_monitoring"
 
     raw = requests.get("https://search.naver.com/search.naver?where=news&query="+ keyword + "&sm=tab_opt&sort=1&photo=0&field=0&pd=0&ds=&de=&docid=&related=0&mynews=0&office_type=0&office_section_code=0&news_office_checked=&nso=so%3Add%2Cp%3Aall&is_sug_officeid=0",
@@ -39,7 +41,7 @@ def postSlackMessage(keyword):
             #print("response2" + response2.status_code)
 
 
-schedule.every().day.at("14:16").do(searchKeyword1)
+schedule.every().day.at("10:30").do(searchKeywords)
 
 while True:
     schedule.run_pending()
